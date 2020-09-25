@@ -1,0 +1,47 @@
+#
+# Makefile Macros generated from /home/yyq/FGOLAS/scripts/ccsm_utils/Machines/config_compilers.xml using
+# COMPILER=intel
+# OS=LINUX
+# MACH=lasg-intel
+#
+CPPDEFS+= -DFORTRANUNDERSCORE -DNO_R16 -DLINUX -DCPRINTEL 
+
+CFLAGS:= -O2 -fp-model precise 
+
+CXX_LDFLAGS:= -cxxlib 
+
+CXX_LINKER:=FORTRAN
+
+FC_AUTO_R8:= -r8 
+
+#FFLAGS:= -O2 -fp-model source -convert big_endian -mcmodel=large -assume byterecl -ftz -traceback -m64 -shared-intel -safe-cray-ptr -openmp
+FFLAGS:= -O2 -fp-model source -convert big_endian -mcmodel=large -assume byterecl -ftz -traceback -m64 -shared-intel -safe-cray-ptr 
+
+FFLAGS_NOOPT:= -O0 
+
+FIXEDFLAGS:= -fixed -132 
+
+FREEFLAGS:= -free 
+
+MPICC:=mpicc
+
+MPICXX:= mpicxx 
+
+MPIFC:=mpif90 -axAVX
+
+MPI_LIB_NAME:=mpi
+
+MPI_PATH:=$(MPI_PATH)
+
+SCC:=icc
+
+SCXX:= icpc 
+
+SFC:=ifort
+
+SUPPORTS_CXX:=TRUE
+
+ifeq ($(DEBUG), TRUE) 
+   FFLAGS += -g -CU -check pointers -fpe0 
+endif
+
